@@ -22,78 +22,6 @@ This is the main module that integrates all submodules (mod59, mod10, and mod6)
 
 to form a complete 12-hour digital clock.
 
-Ports
-
-Signal
-
-Dir
-
-Width
-
-Description
-
-clk
-
-Input
-
-1
-
-System clock
-
-rst
-
-Input
-
-1
-
-Active-high reset
-
-enable_1hz
-
-Input
-
-1
-
-1 Hz enable pulse (one tick per second)
-
-sec_ones
-
-Output
-
-4
-
-Seconds (ones place)
-
-sec_tens
-
-Output
-
-3
-
-Seconds (tens place)
-
-min_ones
-
-Output
-
-4
-
-Minutes (ones place)
-
-min_tens
-
-Output
-
-3
-
-Minutes (tens place)
-
-hours
-
-Output
-
-5
-
 Hour count (1–12)
 
 🧠 Working Principle
@@ -258,11 +186,10 @@ GTKWave — Waveform visualization
 Simulation
 
 # 1. Compile all design files and the testbench
-iverilog -o clock_sim hour.v mod59.v mod10.v mod6.v tb_hour.v
+iverilog  hour.v mod59.v mod10.v mod6.v tb_hour.v
 
 # 2. Run the simulation
-./clock_sim
-
+./a.out
 
 This will print the H:M:S output to the console and generate tb_hour.vcd.
 
@@ -285,8 +212,8 @@ hierarchy -top hour
 # 4. Run synthesis
 synth
 
-# 5. (Optional) Show the synthesized circuit
+# 5. Show the synthesized circuit
 show hour
 
+<img width="1514" height="694" alt="image" src="https://github.com/user-attachments/assets/e83aaec5-eed2-4505-8b35-1cf27506dcf1" />
 
-The show command will generate a .dot file and attempt to open a graphical viewer (like xdot) to display the circuit schematic.
